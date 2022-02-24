@@ -1,23 +1,20 @@
 import React, { useState} from 'react';
 import { AppUI } from './AppUI';
-import { CreateTodoButton } from '../components/CreateTodoButton';
-import { TodoCounter } from '../components/TodoCounter';
-import { TodoList } from '../components/TodoList';
-import { TodoSearch } from '../components/TodoSearch';
-import { TodoItem } from '../components/TodoItem';
 
-// const defTodos = [
-//   {text: 'Learn React', isCompleted: true},
-//   {text: 'Learn Redux and React-Redux', isCompleted: false},
-//   {text: 'Learn React Router', isCompleted: false},
-//   {text: 'Learn React Hooks', isCompleted: false},
-//   {text: 'Learn React Testing', isCompleted: true},
-// ];
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+
+  const [item, setItem] = useState(!localStorageItem ? JSON.stringify(initialValue) : JSON.parse(localStorageItem));
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  }
+  return [item, saveItem];
+}
 
 export const App = () => {
-  const localStorageTodos = localStorage.getItem('TODOS');
-
-  const [todos, setTodos] = useState(!localStorageTodos ? JSON.stringify([]) : JSON.parse(localStorageTodos));
+  const [todos, saveTodos] = useLocalStorage('TODOS', []);
   const [search, setSearch] = useState('')
   
   const completedTodos = todos.filter(todo => !!todo.isCompleted).length;
@@ -32,12 +29,6 @@ export const App = () => {
       });
 
   }
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS', JSON.stringify(newTodos));
-    setTodos(newTodos);
-  }
-
 
   const completeTodos = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
