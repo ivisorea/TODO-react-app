@@ -1,5 +1,5 @@
 .todo-button{
-    background-color: #61DAFA;
+  background-color: #61DAFA;
   box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
   border: none;
   border-radius: 50%;
@@ -16,10 +16,15 @@
   height: 64px;
   width: 64px;
 
+  transform: rotate(0);
+  transition: .3s ease;
+  z-index: 12;
+
 
 }
 
 .todo-button:hover{
-    box-shadow: #61DAFA 0px 0px 0px 2px;
+  transform: rotate(224deg);
     
 }
+

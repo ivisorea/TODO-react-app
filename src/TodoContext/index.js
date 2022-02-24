@@ -4,13 +4,16 @@ import { useLocalStorage } from './useLocalStorage';
 const TodoContext = createContext();
 
 function TodoProvider(props) {
+    const [search, setSearch] = useState('');
+    const [openModal, setOpenModal] = useState(false);
+
     const {
         item: todos,
         saveItem: saveTodos,
         loading,
         error
       } = useLocalStorage('TODOS', []);
-      const [search, setSearch] = useState('')
+     
       
       const completedTodos = todos.filter(todo => !!todo.isCompleted).length;
       const totalTodos = todos.length;
@@ -38,6 +41,7 @@ function TodoProvider(props) {
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
       }
+
     
   return (
     <TodoContext.Provider value={
@@ -50,7 +54,9 @@ function TodoProvider(props) {
             completeTodos,
             deleteTodo,
             loading,
-            error
+            error,
+            openModal,
+            setOpenModal,
         }
     }>
       {props.children}
