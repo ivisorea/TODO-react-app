@@ -5,21 +5,25 @@ export const TodoItem = (props) => {
     
   return (
     <li className='todo-item'>
-        <span  
-            className={`icon icon-check ${props.completed && 'icon-check--active'}`}
-            onClick={props.onComplete}
-            >
-            √
-        </span>
+        <i 
+          onClick={props.onComplete}
+          className={`fa-solid fa-check icon icon-check ${props.completed && 'icon-check--active'}`}>
+        </i>
         <p className={`todo-item-p ${props.completed && 'todo-item-p--complete'}`}>
             {props.text}
         </p>
-        <span 
+        <i 
+          class="icon icon-delete fa-regular fa-trash-can"
+          onClick={props.onDelete}>
+        </i>
+
+        {/* <span 
             className='icon icon-delete'
             onClick={props.onDelete}
             >
             x
-        </span>
+        </span> */}
+        
     </li>
   )
 }

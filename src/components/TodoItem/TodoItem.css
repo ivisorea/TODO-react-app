@@ -28,8 +28,6 @@
     height: 48px;
     width: 48px;
     font-size: 2rem;
-    font-weight: bold;
-    font-family: sans-serif;
 }
 
 .icon-check{
@@ -43,8 +41,8 @@
 
 .icon-delete{
     position: absolute;
-    top: -24px;
     right: 0;
+    color: #bdc0bd;
 }
 
 .icon-delete:hover{

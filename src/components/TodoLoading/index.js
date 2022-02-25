@@ -4,7 +4,7 @@ import './TodoLoading.css'
 export const TodoLoading = () => {
   return (
     <div className="todo-loading">
-        <div class="ring">Loading
+        <div className="ring">Loading
             <span className='span'></span>
         </div>
     </div>
