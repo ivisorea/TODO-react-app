@@ -27,8 +27,9 @@
     align-items: center;
     height: 48px;
     width: 48px;
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 .icon-check{

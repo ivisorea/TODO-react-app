@@ -5,7 +5,7 @@ import { TodoCounter } from '../components/TodoCounter';
 import { TodoList } from '../components/TodoList';
 import { TodoSearch } from '../components/TodoSearch';
 import { TodoItem } from '../components/TodoItem';
-import { Modal } from '../Modal';
+import { Modal } from '../components/Modal';
 import { TodoForm } from '../components/TodoForm';
 
 export const AppUI = () => {
