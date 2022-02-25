@@ -27,8 +27,7 @@
     align-items: center;
     height: 48px;
     width: 48px;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 2rem;
 }
 
 .icon-check{
@@ -42,8 +41,8 @@
 
 .icon-delete{
     position: absolute;
-    top: -24px;
     right: 0;
+    color: #bdc0bd;
 }
 
 .icon-delete:hover{
